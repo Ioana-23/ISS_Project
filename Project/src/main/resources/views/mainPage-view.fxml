@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="557.0" prefWidth="807.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controllers.MainPageController">
+   <children>
+      <TabPane layoutX="-6.0" layoutY="28.0" prefHeight="531.0" prefWidth="814.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Program">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane layoutY="52.0" prefHeight="482.0" prefWidth="814.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Luni">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="mondayTableProgram" layoutX="28.0" layoutY="45.0" prefHeight="298.0" prefWidth="378.0">
+                                            <columns>
+                                              <TableColumn fx:id="mondayTableProgramName" prefWidth="75.0" text="Nume" />
+                                              <TableColumn fx:id="mondayTableProgramOra" prefWidth="75.0" text="Ora" />
+                                                <TableColumn fx:id="mondayTableProgramTip" prefWidth="75.0" text="Tip" />
+                                                <TableColumn fx:id="mondayTableProgramGen" prefWidth="75.0" text="Gen" />
+                                                <TableColumn fx:id="mondayTableProgramReview" prefWidth="75.0" text="Review" />
+                                            </columns>
+                                          </TableView>
+                                          <ChoiceBox fx:id="sliderMondayProgram" layoutX="582.0" layoutY="41.0" onAction="#handleFilterByNameMonday" prefWidth="150.0" />
+                                          <Label layoutX="449.0" layoutY="45.0" text="Filtreaza dupa nume" />
+                                          <AnchorPane layoutX="468.0" layoutY="98.0" prefHeight="200.0" prefWidth="210.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <CheckBox layoutX="39.0" layoutY="29.0" mnemonicParsing="false" text="Ora" />
+                                                <CheckBox layoutX="115.0" layoutY="29.0" mnemonicParsing="false" text="Review" />
+                                                <RadioButton layoutX="115.0" layoutY="87.0" mnemonicParsing="false" text="Desrescator" />
+                                                <RadioButton layoutX="14.0" layoutY="87.0" mnemonicParsing="false" text="Crescator" />
+                                                <Button layoutX="69.0" layoutY="139.0" mnemonicParsing="false" text="Sorteaza" />
+                                             </children>
+                                          </AnchorPane>
+                                          <Button fx:id="makeReservationMonday" onAction="#makeReservationMonday" layoutX="407.0" layoutY="368.0" mnemonicParsing="false" text="Rezerva" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Marti">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="tuesdayTableProgram" layoutX="28.0" layoutY="45.0" prefHeight="298.0" prefWidth="378.0">
+                                             <columns>
+                                                <TableColumn fx:id="tuesdayTableProgramName" prefWidth="75.0" text="Nume" />
+                                                <TableColumn fx:id="tuesdayTableProgramOra" prefWidth="75.0" text="Ora" />
+                                                <TableColumn fx:id="tuesdayTableProgramTip" prefWidth="75.0" text="Tip" />
+                                                <TableColumn fx:id="tuesdayTableProgramGen" prefWidth="75.0" text="Gen" />
+                                                <TableColumn fx:id="tuesdayTableProgramReview" prefWidth="75.0" text="Review" />
+                                             </columns>
+                                          </TableView>
+                                          <ChoiceBox fx:id="sliderTuesdayProgram" layoutX="582.0" layoutY="41.0" prefWidth="150.0" onAction="#handleFilterByNameTuesday"/>
+                                          <Label layoutX="449.0" layoutY="45.0" text="Filtreaza dupa nume" />
+                                          <AnchorPane layoutX="468.0" layoutY="98.0" prefHeight="200.0" prefWidth="210.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <CheckBox layoutX="39.0" layoutY="29.0" mnemonicParsing="false" text="Ora" />
+                                                <CheckBox layoutX="115.0" layoutY="29.0" mnemonicParsing="false" text="Review" />
+                                                <RadioButton layoutX="115.0" layoutY="87.0" mnemonicParsing="false" text="Desrescator" />
+                                                <RadioButton layoutX="14.0" layoutY="87.0" mnemonicParsing="false" text="Crescator" />
+                                                <Button layoutX="69.0" layoutY="139.0" mnemonicParsing="false" text="Sorteaza" />
+                                             </children>
+                                          </AnchorPane>
+                                           <Button fx:id="makeReservationTuesday" onAction="#makeReservationTuesday" layoutX="407.0" layoutY="368.0" mnemonicParsing="false" text="Rezerva" />
+                                       </children></AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="Miercuri">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="wednesdayTableProgram" layoutX="28.0" layoutY="45.0" prefHeight="298.0" prefWidth="378.0">
+                                             <columns>
+                                                <TableColumn fx:id="wednesdayTableProgramName" prefWidth="75.0" text="Nume" />
+                                                <TableColumn fx:id="wednesdayTableProgramOra" prefWidth="75.0" text="Ora" />
+                                                <TableColumn fx:id="wednesdayTableProgramTip" prefWidth="75.0" text="Tip" />
+                                                <TableColumn fx:id="wednesdayTableProgramGen" prefWidth="75.0" text="Gen" />
+                                                <TableColumn fx:id="wednesdayTableProgramReview" prefWidth="75.0" text="Review" />
+                                             </columns>
+                                          </TableView>
+                                          <ChoiceBox fx:id="sliderWednesdayProgram" layoutX="582.0" layoutY="41.0" prefWidth="150.0" onAction="#handleFilterByNameWednesday"/>
+                                          <Label layoutX="449.0" layoutY="45.0" text="Filtreaza dupa nume" />
+                                          <AnchorPane layoutX="468.0" layoutY="98.0" prefHeight="200.0" prefWidth="210.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <CheckBox layoutX="39.0" layoutY="29.0" mnemonicParsing="false" text="Ora" />
+                                                <CheckBox layoutX="115.0" layoutY="29.0" mnemonicParsing="false" text="Review" />
+                                                <RadioButton layoutX="115.0" layoutY="87.0" mnemonicParsing="false" text="Desrescator" />
+                                                <RadioButton layoutX="14.0" layoutY="87.0" mnemonicParsing="false" text="Crescator" />
+                                                <Button layoutX="69.0" layoutY="139.0" mnemonicParsing="false" text="Sorteaza" />
+                                             </children>
+                                          </AnchorPane>
+                                           <Button fx:id="makeReservationWednesday" onAction="#makeReservationWednesday" layoutX="407.0" layoutY="368.0" mnemonicParsing="false" text="Rezerva" />
+                                       </children></AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Joi">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="thursdayTableProgram" layoutX="28.0" layoutY="45.0" prefHeight="298.0" prefWidth="378.0">
+                                             <columns>
+                                                <TableColumn fx:id="thursdayTableProgramName" prefWidth="75.0" text="Nume" />
+                                                <TableColumn fx:id="thursdayTableProgramOra" prefWidth="75.0" text="Ora" />
+                                                <TableColumn fx:id="thursdayTableProgramTip" prefWidth="75.0" text="Tip" />
+                                                <TableColumn fx:id="thursdayTableProgramGen" prefWidth="75.0" text="Gen" />
+                                                <TableColumn fx:id="thursdayTableProgramReview" prefWidth="75.0" text="Review" />
+                                             </columns>
+                                          </TableView>
+                                          <ChoiceBox fx:id="sliderThursdayProgram" layoutX="582.0" layoutY="41.0" prefWidth="150.0" onAction="#handleFilterByNameThursday"/>
+                                          <Label layoutX="449.0" layoutY="45.0" text="Filtreaza dupa nume" />
+                                          <AnchorPane layoutX="468.0" layoutY="98.0" prefHeight="200.0" prefWidth="210.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <CheckBox layoutX="39.0" layoutY="29.0" mnemonicParsing="false" text="Ora" />
+                                                <CheckBox layoutX="115.0" layoutY="29.0" mnemonicParsing="false" text="Review" />
+                                                <RadioButton layoutX="115.0" layoutY="87.0" mnemonicParsing="false" text="Desrescator" />
+                                                <RadioButton layoutX="14.0" layoutY="87.0" mnemonicParsing="false" text="Crescator" />
+                                                <Button layoutX="69.0" layoutY="139.0" mnemonicParsing="false" text="Sorteaza" />
+                                             </children>
+                                          </AnchorPane>
+                                           <Button fx:id="makeReservationThursday" onAction="#makeReservationThursday" layoutX="407.0" layoutY="368.0" mnemonicParsing="false" text="Rezerva" />
+
+                                       </children></AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Vineri">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="fridayTableProgram" layoutX="28.0" layoutY="45.0" prefHeight="298.0" prefWidth="378.0">
+                                             <columns>
+                                                <TableColumn fx:id="fridayTableProgramName" prefWidth="75.0" text="Nume" />
+                                                <TableColumn fx:id="fridayTableProgramOra" prefWidth="75.0" text="Ora" />
+                                                <TableColumn fx:id="fridayTableProgramTip" prefWidth="75.0" text="Tip" />
+                                                <TableColumn fx:id="fridayTableProgramGen" prefWidth="75.0" text="Gen" />
+                                                <TableColumn fx:id="fridayTableProgramReview" prefWidth="75.0" text="Review" />
+                                             </columns>
+                                          </TableView>
+                                          <ChoiceBox fx:id="sliderFridayProgram" layoutX="582.0" layoutY="41.0" onAction="#handleFilterByNameFriday" prefWidth="150.0" />
+                                          <Label layoutX="449.0" layoutY="45.0" text="Filtreaza dupa nume" />
+                                          <AnchorPane layoutX="468.0" layoutY="98.0" prefHeight="200.0" prefWidth="210.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <CheckBox layoutX="39.0" layoutY="29.0" mnemonicParsing="false" text="Ora" />
+                                                <CheckBox layoutX="115.0" layoutY="29.0" mnemonicParsing="false" text="Review" />
+                                                <RadioButton layoutX="115.0" layoutY="87.0" mnemonicParsing="false" text="Desrescator" />
+                                                <RadioButton layoutX="14.0" layoutY="87.0" mnemonicParsing="false" text="Crescator" />
+                                                <Button layoutX="69.0" layoutY="139.0" mnemonicParsing="false" text="Sorteaza" />
+                                             </children>
+                                          </AnchorPane>
+                                           <Button fx:id="makeReservationFriday" onAction="#makeReservationFriday" layoutX="407.0" layoutY="368.0" mnemonicParsing="false" text="Rezerva" />
+                                       </children></AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Sambata">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="saturdayTableProgram" layoutX="28.0" layoutY="45.0" prefHeight="298.0" prefWidth="378.0">
+                                             <columns>
+                                                <TableColumn fx:id="saturdayTableProgramName" prefWidth="75.0" text="Nume" />
+                                                <TableColumn fx:id="saturdayTableProgramOra" prefWidth="75.0" text="Ora" />
+                                                <TableColumn fx:id="saturdayTableProgramTip" prefWidth="75.0" text="Tip" />
+                                                <TableColumn fx:id="saturdayTableProgramGen" prefWidth="75.0" text="Gen" />
+                                                <TableColumn fx:id="saturdayTableProgramReview" prefWidth="75.0" text="Review" />
+                                             </columns>
+                                          </TableView>
+                                          <ChoiceBox fx:id="sliderSaturdayProgram" layoutX="582.0" layoutY="41.0" prefWidth="150.0" onAction="#handleFilterByNameSaturday"/>
+                                          <Label layoutX="449.0" layoutY="45.0" text="Filtreaza dupa nume" />
+                                          <AnchorPane layoutX="468.0" layoutY="98.0" prefHeight="200.0" prefWidth="210.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <CheckBox layoutX="39.0" layoutY="29.0" mnemonicParsing="false" text="Ora" />
+                                                <CheckBox layoutX="115.0" layoutY="29.0" mnemonicParsing="false" text="Review" />
+                                                <RadioButton layoutX="115.0" layoutY="87.0" mnemonicParsing="false" text="Desrescator" />
+                                                <RadioButton layoutX="14.0" layoutY="87.0" mnemonicParsing="false" text="Crescator" />
+                                                <Button layoutX="69.0" layoutY="139.0" mnemonicParsing="false" text="Sorteaza" />
+                                             </children>
+                                          </AnchorPane>
+                                           <Button fx:id="makeReservationSaturday" onAction="#makeReservationSaturday" layoutX="407.0" layoutY="368.0" mnemonicParsing="false" text="Rezerva" />
+
+                                       </children></AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Duminica">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="sundayTableProgram" layoutX="28.0" layoutY="45.0" prefHeight="298.0" prefWidth="378.0">
+                                             <columns>
+                                                <TableColumn fx:id="sundayTableProgramName" prefWidth="75.0" text="Nume" />
+                                                <TableColumn fx:id="sundayTableProgramOra" prefWidth="75.0" text="Ora" />
+                                                <TableColumn fx:id="sundayTableProgramTip" prefWidth="75.0" text="Tip" />
+                                                <TableColumn fx:id="sundayTableProgramGen" prefWidth="75.0" text="Gen" />
+                                                <TableColumn fx:id="sundayTableProgramReview" prefWidth="75.0" text="Review" />
+                                             </columns>
+                                          </TableView>
+                                          <ChoiceBox fx:id="sliderSundayProgram" layoutX="582.0" layoutY="41.0" prefWidth="150.0" onAction="#handleFilterByNameSunday"/>
+                                          <Label layoutX="449.0" layoutY="45.0" text="Filtreaza dupa nume" />
+                                          <AnchorPane layoutX="468.0" layoutY="98.0" prefHeight="200.0" prefWidth="210.0" style="-fx-border-color: black;">
+                                             <children>
+                                                <CheckBox layoutX="39.0" layoutY="29.0" mnemonicParsing="false" text="Ora" />
+                                                <CheckBox layoutX="115.0" layoutY="29.0" mnemonicParsing="false" text="Review" />
+                                                <RadioButton layoutX="115.0" layoutY="87.0" mnemonicParsing="false" text="Desrescator" />
+                                                <RadioButton layoutX="14.0" layoutY="87.0" mnemonicParsing="false" text="Crescator" />
+                                                <Button layoutX="69.0" layoutY="139.0" mnemonicParsing="false" text="Sorteaza" />
+                                             </children>
+                                          </AnchorPane>
+                                           <Button fx:id="makeReservationSunday" onAction="#makeReservationSunday" layoutX="407.0" layoutY="368.0" mnemonicParsing="false" text="Rezerva" />
+                                       </children></AnchorPane>
+                                 </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                        <AnchorPane prefHeight="52.0" prefWidth="814.0" style="-fx-background-color: purple;" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Search movie">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane prefHeight="52.0" prefWidth="814.0" style="-fx-background-color: purple;" />
+                        <TextField layoutX="25.0" layoutY="66.0" promptText="search movie" />
+                        <TableView layoutX="72.0" layoutY="133.0" prefHeight="298.0" prefWidth="378.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="Nume" />
+                              <TableColumn prefWidth="75.0" text="Ora" />
+                              <TableColumn prefWidth="75.0" text="Tip" />
+                              <TableColumn  prefWidth="75.0" text="Gen" />
+                              <TableColumn prefWidth="75.0" text="Review" />
+                           </columns>
+                        </TableView>
+                        <Button layoutX="559.0" layoutY="133.0" mnemonicParsing="false" text="Adauga la WatchList" />
+                        <Button layoutX="559.0" layoutY="189.0" mnemonicParsing="false" text="Da review!" />
+                        <Button layoutX="668.0" layoutY="189.0" mnemonicParsing="false" text="Actualizeaza review" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Account details">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="179.0" layoutY="55.0" fx:id="labelWelcome">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Label>
+                        <AnchorPane prefHeight="52.0" prefWidth="814.0" style="-fx-background-color: purple;" />
+                        <TabPane layoutX="4.0" layoutY="105.0" prefHeight="395.0" prefWidth="814.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="List rezervari">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView layoutX="19.0" layoutY="34.0" prefHeight="239.0" prefWidth="430.0" fx:id="accountTableReservation">
+                                            <columns>
+                                              <TableColumn fx:id="accountTableReservationData" prefWidth="75.0" text="Data" />
+                                              <TableColumn fx:id="accountTableReservationOra" prefWidth="75.0" text="Ora" />
+                                                <TableColumn fx:id="accountTableReservationName" prefWidth="75.0" text="Film" />
+                                                <TableColumn fx:id="accountTableReservationMovieHall" prefWidth="55.0" text="Sala" />
+                                                <TableColumn fx:id="accountTableReservationLocuri" prefWidth="75.0" text="Locuri" />
+                                                <TableColumn fx:id="accountTableReservationStatus" prefWidth="75.0" text="Status" />
+                                            </columns>
+                                          </TableView>
+                                          <Button layoutX="503.0" layoutY="49.0" mnemonicParsing="false" text="Anuleaza rezervarea" onAction="#handleDeleteReservation"/>
+                                          <Button layoutX="503.0" layoutY="108.0" mnemonicParsing="false" text="Actualizeaza rezervarea" onAction="#handleUpdateReservation"/>
+                                          <Label layoutX="469.0" layoutY="190.0" text="Filtreaza dupa nume" />
+                                          <ChoiceBox layoutX="600.0" layoutY="186.0" prefWidth="150.0" />
+                                          <Label layoutX="468.0" layoutY="237.0" prefHeight="18.0" prefWidth="110.0" text="Filtreaza dupa data" />
+                                          <DatePicker layoutX="600.0" layoutY="233.0" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="WatchList">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView layoutX="119.0" layoutY="28.0" prefHeight="200.0" prefWidth="225.0">
+                                            <columns>
+                                              <TableColumn prefWidth="75.0" text="Nume" />
+                                              <TableColumn prefWidth="75.0" text="Gen" />
+                                                <TableColumn prefWidth="75.0" text="Review" />
+                                            </columns>
+                                          </TableView>
+                                          <Label layoutX="394.0" layoutY="143.0" text="Filtreaza dupa nume" />
+                                          <ChoiceBox layoutX="577.0" layoutY="143.0" prefWidth="150.0" />
+                                          <Label layoutX="397.0" layoutY="207.0" text="Filtreaza dupa gen" />
+                                          <ChoiceBox layoutX="577.0" layoutY="203.0" prefWidth="150.0" />
+                                          <Label layoutX="402.0" layoutY="280.0" text="Filtreaza dupa review" />
+                                          <Slider blockIncrement="1.0" layoutX="582.0" layoutY="273.0" max="5.0" min="1.0" value="1.0" />
+                                          <Label layoutX="582.0" layoutY="248.0" text="1" />
+                                          <Label layoutX="714.0" layoutY="248.0" text="5" />
+                                          <Button layoutX="383.0" layoutY="42.0" mnemonicParsing="false" text="Sterge din WatchList" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="231.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="Edit">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Edit account information" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" text="Trimite-ne un email" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Log out">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="See you again" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>
