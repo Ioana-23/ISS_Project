@@ -14,13 +14,14 @@ public class DatabaseRepositoryMovieScreening implements Repository<MovieScreeni
     @Override
     public void add(MovieScreening itemToAdd)
     {
-        String comanda = "INSERT INTO public.\"MovieScreening\"(\"idMovie\", \"date\", \"time\", \"idMovieHall\") VALUES (?, ?, ?, ?)";
+        String comanda = "INSERT INTO public.\"MovieScreening\"(\"idMovie\", \"date\", \"time\", \"idMovieHall\", \"tip\") VALUES (?, ?, ?, ?, ?)";
         try(PreparedStatement statement = connection.prepareStatement(comanda))
         {
             statement.setInt(1, itemToAdd.getMovie().getId());
             statement.setDate(2, Date.valueOf(itemToAdd.getDate()));
             statement.setTime(3, Time.valueOf(itemToAdd.getTime()));
             statement.setInt(4, itemToAdd.getMovieHall().getId());
+            statement.setString(5, itemToAdd.getTipString());
             statement.executeUpdate();
         }
         catch (SQLException e)
@@ -29,7 +30,19 @@ public class DatabaseRepositoryMovieScreening implements Repository<MovieScreeni
             e.printStackTrace();
         }
     }
-
+    public void deleteAll()
+    {
+        try(Statement statement = connection.createStatement())
+        {
+            statement.execute("DELETE FROM public.\"ReservationSeats\"");
+            statement.execute("DELETE FROM public.\"Reservation\"");
+            statement.execute("DELETE FROM public.\"MovieScreening\"");
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
     @Override
     public List<MovieScreening> findAll()
     {

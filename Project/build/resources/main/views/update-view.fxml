@@ -11,7 +11,7 @@
    <children>
       <Label layoutX="127.0" layoutY="66.0" prefHeight="26.0" prefWidth="125.0" text="Selectati data dorita: " />
       <Label layoutX="126.0" layoutY="145.0" prefHeight="26.0" prefWidth="126.0" text="Selectati ora dorita" />
-      <Button layoutX="215.0" layoutY="213.0" mnemonicParsing="false" text="Actualizeaza rezervarea" onAction="#handleUpdateReservation"/>
+      <Button fx:id="reserve" layoutX="215.0" layoutY="213.0" mnemonicParsing="false" text="Actualizeaza rezervarea" onAction="#handleUpdateReservation"/>
       <DatePicker fx:id="datePicker" layoutX="266.0" layoutY="73.0" prefHeight="26.0" prefWidth="150.0" onAction="#handleUpdateHours"/>
       <ChoiceBox fx:id="timePicker" layoutX="266.0" layoutY="145.0" prefWidth="150.0" onAction="#handleUpdateTime"/>
    </children>

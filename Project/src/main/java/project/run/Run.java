@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 public class Run {
         public static void main(String[] args) {
@@ -28,7 +29,7 @@ public class Run {
             DatabaseRepositoryMovieReview repositoryMovieReview = new DatabaseRepositoryMovieReview();
             DatabaseRepositoryMovieScreening repositoryMovieScreening = new DatabaseRepositoryMovieScreening();
             Service service = new Service(repositoryUser, repositoryMovie, repositoryMovieHall, repositoryReservation, repositorySeat, repositoryMovieHallSeats, repositoryReservationSeats, repositoryMovieReview, repositoryMovieScreening);
-            service.addUser("ardeleancatalin03@gmail.com", "abra12#", "Catalin Ardelean", new ArrayList<>(Arrays.asList(0,7,3,7,5,2,5,3,6,0)));
+            /*service.addUser("ardeleancatalin03@gmail.com", "abra12#", "Catalin Ardelean", new ArrayList<>(Arrays.asList(0,7,3,7,5,2,5,3,6,0)));
             service.addMovie("Suzume", Genre.Animatie, 7.8, LocalDate.parse("2022-04-14"));
             service.addMovie("Snowpiercer", Genre.Actiune, 7.1, LocalDate.parse("2014-07-11"));
             service.addMovie("A Marriage Story", Genre.Drama, 7.9, LocalDate.parse("2019-12-06"));
@@ -42,6 +43,28 @@ public class Run {
             service.addSeat(2,4);
             service.addReservation("Snowpiercer", Genre.Actiune, 7.1, LocalDate.parse("2014-07-11"), LocalDate.parse("2023-06-23"), LocalTime.parse("19:50"), 4, new ArrayList<>(Arrays.asList(new Seat(1, 1), new Seat(1, 2))), Tip.DDDDX, Status.Inregistrata, LocalDateTime.parse("2023-06-23T21:15:00"), new ArrayList<>(Arrays.asList(new Seat(1,1))),"a", "a", "a", new ArrayList<>(Arrays.asList(0,0,0,0,0,0,0,0,0,0)));
             service.addMovieReview("Suzume", Genre.Animatie, 7.8, LocalDate.parse("2022-04-14"), "baciuioana23@gmail.com", "abra12#", "Ioana Baciu", new ArrayList<>(Arrays.asList(0,7,3,7,5,2,5,3,6,9)), 8);
+        */
+            Random random = new Random();
+            for(int i = 1; i <= 10; i++)
+            {
+                int nrLinii = random.nextInt(10);
+                while(nrLinii<6)
+                {
+                    nrLinii = random.nextInt(10);
+                }
+                for(int j = 1; j <= nrLinii; j++)
+                {
+                    int nrColoane = random.nextInt(15);
+                    while(nrColoane<6)
+                    {
+                        nrColoane = random.nextInt(15);
+                    }
+                    for(int k = 1; k <= nrColoane; k++)
+                    {
+                        service.addMovieHall(i, new ArrayList<>(Arrays.asList(new Seat(j, k))));
+                    }
+                }
+            }
         }
         catch (SQLException e)
         {

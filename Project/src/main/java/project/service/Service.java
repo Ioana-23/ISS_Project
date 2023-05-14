@@ -1,5 +1,6 @@
 package project.service;
 
+import javafx.scene.control.Alert;
 import project.domain.*;
 import project.exceptions.AlreadyExistsException;
 import project.exceptions.DoesNotExistExeption;
@@ -9,7 +10,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class Service
 {
@@ -22,8 +25,10 @@ public class Service
     private DatabaseRepositoryReservationSeats repoReservationSeats;
     private DatabaseRepositoryMovieReview repoMovieReview;
     private DatabaseRepositoryMovieScreening repoMovieScreening;
-
-    public Service(DatabaseRepositoryUser repoUser, DatabaseRepositoryMovie repoMovie, DatabaseRepositoryMovieHall repoMovieHall, DatabaseRepositoryReservation repoReservation, DatabaseRepositorySeat repoSeat, DatabaseRepositoryMovieHallSeats repoMovieHallSeats, DatabaseRepositoryReservationSeats repoReservationSeats, DatabaseRepositoryMovieReview repoMovieReview, DatabaseRepositoryMovieScreening repoMovieScreening) {
+    private Random random = new Random();
+    private List<List<LocalTime>> timesPerDay = new ArrayList<>();
+    public Service(DatabaseRepositoryUser repoUser, DatabaseRepositoryMovie repoMovie, DatabaseRepositoryMovieHall repoMovieHall, DatabaseRepositoryReservation repoReservation, DatabaseRepositorySeat repoSeat, DatabaseRepositoryMovieHallSeats repoMovieHallSeats, DatabaseRepositoryReservationSeats repoReservationSeats, DatabaseRepositoryMovieReview repoMovieReview, DatabaseRepositoryMovieScreening repoMovieScreening)
+    {
         this.repoUser = repoUser;
         this.repoMovie = repoMovie;
         this.repoMovieHall = repoMovieHall;
@@ -33,8 +38,60 @@ public class Service
         this.repoReservationSeats = repoReservationSeats;
         this.repoMovieReview = repoMovieReview;
         this.repoMovieScreening = repoMovieScreening;
+        for(int i = 0; i < 10; i++)
+        {
+            timesPerDay.add(new ArrayList<>());
+            if(i%2==0)
+            {
+                timesPerDay.get(i).add(LocalTime.parse("12:15:00"));
+                timesPerDay.get(i).add(LocalTime.parse("18:30:00"));
+                timesPerDay.get(i).add(LocalTime.parse("22:30:00"));
+            }
+            else
+            {
+                timesPerDay.get(i).add(LocalTime.parse("14:45:00"));
+                timesPerDay.get(i).add(LocalTime.parse("19:00:00"));
+                timesPerDay.get(i).add(LocalTime.parse("20:15:00"));
+            }
+        }
     }
-
+    public void addMovieScreenings(List<LocalDate> dates)
+    {
+        repoMovieScreening.deleteAll();
+        for(int k = 0; k < repoMovie.findAll().size(); k++)
+        {
+            for(int i = 0; i < dates.size(); i++)
+            {
+                int movieHall = random.nextInt(10);
+                for(int j = 0; j < 3; j++)
+                {
+                    if(random.nextDouble()<0.3)
+                    {
+                        int tip = random.nextInt(3);
+                        try
+                        {
+                            if(tip==0)
+                            {
+                                addMovieScreening(repoMovie.findAll().get(k).getName(), repoMovie.findAll().get(k).getGenre(), repoMovie.findAll().get(k).getReview(), repoMovie.findAll().get(k).getDate(), dates.get(i), timesPerDay.get(movieHall).get(j), Tip.DD, movieHall+1, repoMovieHall.findAll().get(movieHall).getHallConfiguration());
+                            }
+                            else if(tip == 1)
+                            {
+                                addMovieScreening(repoMovie.findAll().get(k).getName(), repoMovie.findAll().get(k).getGenre(), repoMovie.findAll().get(k).getReview(), repoMovie.findAll().get(k).getDate(), dates.get(i), timesPerDay.get(movieHall).get(j), Tip.DDD, movieHall+1, repoMovieHall.findAll().get(movieHall).getHallConfiguration());
+                            }
+                            else
+                            {
+                                addMovieScreening(repoMovie.findAll().get(k).getName(), repoMovie.findAll().get(k).getGenre(), repoMovie.findAll().get(k).getReview(), repoMovie.findAll().get(k).getDate(), dates.get(i), timesPerDay.get(movieHall).get(j), Tip.DDDDX, movieHall+1, repoMovieHall.findAll().get(movieHall).getHallConfiguration());
+                            }
+                        }
+                        catch (IndexOutOfBoundsException e)
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        }
+    }
     public List<User> findAllUsers()
     {
         return repoUser.findAll();
@@ -55,8 +112,8 @@ public class Service
         }
         catch (AlreadyExistsException e)
         {
-            e.getCause();
-            e.printStackTrace();
+                        Alert alert = new Alert (Alert.AlertType.WARNING, e.getMessage());
+            alert.showAndWait();
         }
     }
     public Integer findUser(User userToFind)
@@ -89,8 +146,8 @@ public class Service
         }
         catch (AlreadyExistsException e)
         {
-            e.getCause();
-            e.printStackTrace();
+                        Alert alert = new Alert (Alert.AlertType.WARNING, e.getMessage());
+            alert.showAndWait();
         }
     }
     public Integer findMovie(Movie movieToFind)
@@ -139,7 +196,8 @@ public class Service
                     }
                     catch (AlreadyExistsException e)
                     {
-                        continue;
+                                    Alert alert = new Alert (Alert.AlertType.WARNING, e.getMessage());
+            alert.showAndWait();
                     }
 
                 }
@@ -149,8 +207,8 @@ public class Service
         }
         catch (AlreadyExistsException e)
         {
-            e.getCause();
-            e.printStackTrace();
+                        Alert alert = new Alert (Alert.AlertType.WARNING, e.getMessage());
+            alert.showAndWait();
         }
 
     }
@@ -181,8 +239,8 @@ public class Service
         }
         catch (AlreadyExistsException e)
         {
-            e.getCause();
-            e.printStackTrace();
+                        Alert alert = new Alert (Alert.AlertType.WARNING, e.getMessage());
+            alert.showAndWait();
         }
     }
 
@@ -220,7 +278,7 @@ public class Service
     {
         return repoReservation.findAll();
     }
-    public void addReservation(String name, Genre genre, double review, LocalDate date, LocalDate date1, LocalTime time, int number, List<Seat> movieHallConfiguration, Tip tip, Status status, LocalDateTime dateTime, List<Seat> seatsReserved,String email, String parola, String nume, List<Integer> numarTelefon)
+    public void addReservation(String name, Genre genre, double review, LocalDate date, LocalDate date1, LocalTime time, int number, List<Seat> movieHallConfiguration, Tip tip, Status status, List<Seat> seatsReserved,String email, String parola, String nume, List<Integer> numarTelefon)
     {
         Movie movie = new Movie(name, genre, review, date);
         int idMovie = findMovie(movie);
@@ -254,13 +312,13 @@ public class Service
                 }
                 else
                 {
-                    throw new AlreadyExistsException("Reservation for user with email: " + email + ", for movie: " + name + " for date: " + dateTime + " already exists");
+                    throw new AlreadyExistsException("Reservation for user with email: " + email + ", for movie: " + name + " for date: " + date + " " + time + " already exists");
                 }
             }
             catch (AlreadyExistsException e)
             {
-                e.getCause();
-                e.printStackTrace();
+                Alert alert = new Alert (Alert.AlertType.WARNING, e.getMessage());
+                alert.showAndWait();
             }
         }
     }
@@ -300,8 +358,8 @@ public class Service
         }
         catch (AlreadyExistsException e)
         {
-            e.getCause();
-            e.printStackTrace();
+                        Alert alert = new Alert (Alert.AlertType.WARNING, e.getMessage());
+                alert.showAndWait();
         }
     }
     public List<Seat> getOccupiedSeats(MovieScreening movieScreening)
@@ -335,8 +393,8 @@ public class Service
         }
         catch (DoesNotExistExeption e)
         {
-            e.getCause();
-            e.printStackTrace();
+            Alert alert = new Alert (Alert.AlertType.WARNING, e.getCause().toString());
+            alert.showAndWait();
         }
     }
 

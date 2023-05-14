@@ -20,8 +20,12 @@ import project.domain.User;
 import project.service.Service;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReserveController1 {
+    @FXML
+    private Button backButton;
     @FXML
     private CheckBox adult;
     @FXML
@@ -59,9 +63,12 @@ public class ReserveController1 {
     private Service service;
     private User userCurent;
     private MovieScreening movieScreening;
+    private MainPageController mainPageController;
 
     public ReserveController1() {
     }
+
+    public void setMainPageController(MainPageController mainPageController) {this.mainPageController = mainPageController;}
 
     public void setService(Service service)
     {
@@ -84,61 +91,66 @@ public class ReserveController1 {
     }
     @FXML
     private void continueReservation(ActionEvent actionEvent) throws IOException {
-        Properties properties;
+        List<Properties> properties = new ArrayList<>();
         if(adult.isSelected())
         {
             if(taxaA.isSelected())
             {
-                properties = new Properties(ReservationProperties.Adult, true, nrLocuriA.getValue());
+                properties.add(new Properties(ReservationProperties.Adult, true, nrLocuriA.getValue()));
             }
             else
             {
-                properties = new Properties(ReservationProperties.Adult, false, nrLocuriA.getValue());
+                properties.add(new Properties(ReservationProperties.Adult, false, nrLocuriA.getValue()));
             }
         }
-        else if(copil.isSelected())
+        if(copil.isSelected())
         {
             if(taxaC.isSelected())
             {
-                properties = new Properties(ReservationProperties.Copil, true, nrLocuriC.getValue());
+                properties.add( new Properties(ReservationProperties.Copil, true, nrLocuriC.getValue()));
             }
             else
             {
-                properties = new Properties(ReservationProperties.Copil, false, nrLocuriC.getValue());
+                properties.add(new Properties(ReservationProperties.Copil, false, nrLocuriC.getValue()));
             }
         }
-        else if(student.isSelected())
+        if(student.isSelected())
         {
             if(taxaS.isSelected())
             {
-                properties = new Properties(ReservationProperties.Student, true, nrLocuriS.getValue());
+                properties.add(new Properties(ReservationProperties.Student, true, nrLocuriS.getValue()));
             }
             else
             {
-                properties = new Properties(ReservationProperties.Student, false, nrLocuriS.getValue());
+                properties.add(new Properties(ReservationProperties.Student, false, nrLocuriS.getValue()));
             }
         }
-        else
+        if(pensionar.isSelected())
         {
             if(taxaP.isSelected())
             {
-                properties = new Properties(ReservationProperties.Pensionar, true, nrLocuriP.getValue());
+                properties.add(new Properties(ReservationProperties.Pensionar, true, nrLocuriP.getValue()));
             }
             else
             {
-                properties = new Properties(ReservationProperties.Pensionar, false, nrLocuriP.getValue());
+                properties.add(new Properties(ReservationProperties.Pensionar, false, nrLocuriP.getValue()));
             }
         }
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/views/rezerva-view2.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 600);
+        Scene scene = new Scene(fxmlLoader.load(), 600, 630);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
         ReserveController2 appController = fxmlLoader.getController();
+        appController.setMainPageController(mainPageController);
         appController.setUserCurent(userCurent);
         appController.setMovieScreening(movieScreening);
         appController.setProperties(properties);
         appController.setService(this.service);
+        ((Node)(actionEvent.getSource())).getScene().getWindow().hide();
+    }
+    @FXML
+    private void handleBack(ActionEvent actionEvent) {
         ((Node)(actionEvent.getSource())).getScene().getWindow().hide();
     }
 }

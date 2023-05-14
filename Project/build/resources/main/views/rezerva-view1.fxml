@@ -6,24 +6,25 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="285.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controllers.ReserveController1">
+<AnchorPane prefHeight="333.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controllers.ReserveController1">
    <children>
-      <CheckBox fx:id="adult" layoutX="14.0" layoutY="23.0" mnemonicParsing="false" text="Adult" />
-      <CheckBox fx:id="copil" layoutX="14.0" layoutY="103.0" mnemonicParsing="false" text="Copil" />
+      <CheckBox fx:id="adult" layoutX="14.0" layoutY="52.0" mnemonicParsing="false" text="Adult" />
+      <CheckBox fx:id="copil" layoutX="14.0" layoutY="112.0" mnemonicParsing="false" text="Copil" />
       <CheckBox fx:id="student" layoutX="14.0" layoutY="172.0" mnemonicParsing="false" text="Student" />
       <CheckBox fx:id="pensionar" layoutX="14.0" layoutY="232.0" mnemonicParsing="false" text="Pensionar" />
-      <RadioButton fx:id="taxaA" layoutX="95.0" layoutY="23.0" mnemonicParsing="false" text="Taxa ochelari 3D" />
-      <RadioButton fx:id="taxaC" layoutX="95.0" layoutY="103.0" mnemonicParsing="false" text="Taxa ochelari 3D" />
-      <RadioButton fx:id="taxaS" layoutX="95.0" layoutY="172.0" mnemonicParsing="false" text="Taxa ochelari 3D" />
+      <RadioButton fx:id="taxaA" layoutX="103.0" layoutY="52.0" mnemonicParsing="false" text="Taxa ochelari 3D" />
+      <RadioButton fx:id="taxaC" layoutX="103.0" layoutY="112.0" mnemonicParsing="false" text="Taxa ochelari 3D" />
+      <RadioButton fx:id="taxaS" layoutX="103.0" layoutY="172.0" mnemonicParsing="false" text="Taxa ochelari 3D" />
       <RadioButton fx:id="taxaP" layoutX="103.0" layoutY="232.0" mnemonicParsing="false" text="Taxa ochelari 3D" />
-      <ChoiceBox fx:id="nrLocuriA" layoutX="339.0" layoutY="23.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="nrLocuriC" layoutX="339.0" layoutY="103.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="nrLocuriA" layoutX="339.0" layoutY="52.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="nrLocuriC" layoutX="339.0" layoutY="112.0" prefWidth="150.0" />
       <ChoiceBox fx:id="nrLocuriS" layoutX="339.0" layoutY="172.0" prefWidth="150.0" />
       <ChoiceBox fx:id="nrLocuriP" layoutX="339.0" layoutY="232.0" prefWidth="150.0" />
-      <Button fx:id="rezerva" onAction="#continueReservation" layoutX="522.0" layoutY="250.0" mnemonicParsing="false" text="Continua" />
-      <RadioButton fx:id="faraTaxaA" layoutX="239.0" layoutY="27.0" mnemonicParsing="false" text="Fara taxa" />
-      <RadioButton fx:id="faraTaxaC" layoutX="239.0" layoutY="107.0" mnemonicParsing="false" text="Fara taxa" />
-      <RadioButton fx:id="faraTaxaS" layoutX="239.0" layoutY="163.0" mnemonicParsing="false" text="Fara taxa" />
+      <Button fx:id="rezerva" layoutX="523.0" layoutY="286.0" mnemonicParsing="false" onAction="#continueReservation" text="Continua" />
+      <RadioButton fx:id="faraTaxaA" layoutX="239.0" layoutY="52.0" mnemonicParsing="false" text="Fara taxa" />
+      <RadioButton fx:id="faraTaxaC" layoutX="239.0" layoutY="112.0" mnemonicParsing="false" text="Fara taxa" />
+      <RadioButton fx:id="faraTaxaS" layoutX="239.0" layoutY="172.0" mnemonicParsing="false" text="Fara taxa" />
+      <Button fx:id="backButton" layoutX="13.0" layoutY="286.0" mnemonicParsing="false" onAction="#handleBack" text="Inapoi" />
       <RadioButton fx:id="faraTaxaP" layoutX="239.0" layoutY="232.0" mnemonicParsing="false" text="Fara taxa" />
    </children>
 </AnchorPane>

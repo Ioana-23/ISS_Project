@@ -4,116 +4,22 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controllers.ReserveController2">
+<AnchorPane prefHeight="630.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controllers.ReserveController2">
    <children>
-      <Label layoutX="250.0" layoutY="23.0" fx:id="hallNumber"/>
-      <AnchorPane layoutY="50.0" prefHeight="231.0" prefWidth="562.0" fx:id="anchor">
+      <Label fx:id="hallNumber" layoutX="250.0" layoutY="23.0" />
+      <AnchorPane fx:id="anchor" layoutY="50.0" prefHeight="231.0" prefWidth="562.0">
          <children>
             <Label layoutX="230.0" layoutY="14.0" text="Ecran" />
-            <AnchorPane layoutX="20.0" layoutY="32.0" prefHeight="34.0" prefWidth="554.0">
-               <!--<children>
-                  <Button layoutX="37.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="A/1" textFill="WHITE" />
-                  <Button layoutX="72.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="A/2" textFill="WHITE" />
-                  <Button layoutX="107.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="A/3" textFill="WHITE" />
-                  <Button layoutX="142.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="A/4" textFill="WHITE" />
-                  <Button layoutX="177.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="A/5" textFill="WHITE" />
-                  <Button layoutX="212.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="A/6" textFill="WHITE" />
-                  <Button layoutX="247.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="A/7" textFill="WHITE" />
-                  <Button layoutX="282.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="A/8" textFill="WHITE" />
-                  <Button layoutX="317.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="A/9" textFill="WHITE" />
-                  <Button layoutX="352.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="A/10" textFill="WHITE" />
-                  <Button layoutX="395.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="A/11" textFill="WHITE" />
-               </children>-->
-            </AnchorPane>
-            <AnchorPane layoutX="14.0" layoutY="60.0" prefHeight="34.0" prefWidth="554.0">
-<!--               <children>
-                  &lt;!&ndash;<Button layoutX="37.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="B/1" textFill="WHITE" />
-                  <Button layoutX="72.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="B/2" textFill="WHITE" />
-                  <Button layoutX="107.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="B/3" textFill="WHITE" />
-                  <Button layoutX="142.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="B/4" textFill="WHITE" />
-                  <Button layoutX="177.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="B/5" textFill="WHITE" />
-                  <Button layoutX="212.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="B/6" textFill="WHITE" />
-                  <Button layoutX="247.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="B/7" textFill="WHITE" />
-                  <Button layoutX="282.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="B/8" textFill="WHITE" />
-                  <Button layoutX="317.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="B/9" textFill="WHITE" />
-                  <Button layoutX="352.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="B/10" textFill="WHITE" />
-                  &ndash;&gt;<Button layoutX="395.0" layoutY="2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="B/11" textFill="WHITE" />
-               </children>-->
-            </AnchorPane>
-            <AnchorPane layoutX="85.0" layoutY="86.0" prefHeight="34.0" prefWidth="554.0">
-<!--               <children>
-                 &lt;!&ndash; <Button layoutX="37.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="C/1" textFill="WHITE" />
-                  <Button layoutX="72.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="C/2" textFill="WHITE" />
-                  <Button layoutX="107.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="C/3" textFill="WHITE" />
-                  <Button layoutX="142.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="C/4" textFill="WHITE" />
-                  <Button layoutX="177.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="C/5" textFill="WHITE" />
-                  <Button layoutX="212.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="C/6" textFill="WHITE" />
-                  <Button layoutX="247.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="C/7" textFill="WHITE" />
-                  <Button layoutX="282.0" layoutY="2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="C/8" textFill="WHITE" />
-                  <Button layoutX="325.0" layoutY="2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="C/9" textFill="WHITE" />
-               &ndash;&gt;</children>-->
-            </AnchorPane>
-            <AnchorPane layoutX="85.0" layoutY="112.0" prefHeight="34.0" prefWidth="554.0">
-              <!-- <children>
-                  &lt;!&ndash;<Button layoutX="37.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="D/1" textFill="WHITE" />
-                  <Button layoutX="72.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="D/2" textFill="WHITE" />
-                  <Button layoutX="107.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="D/3" textFill="WHITE" />
-                  <Button layoutX="142.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="D/4" textFill="WHITE" />
-                  <Button layoutX="177.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="D/5" textFill="WHITE" />
-                  <Button layoutX="212.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="D/6" textFill="WHITE" />
-                  <Button layoutX="247.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="D/7" textFill="WHITE" />
-                  <Button layoutX="282.0" layoutY="2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="D/8" textFill="WHITE" />
-                  <Button layoutX="326.0" layoutY="2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="D/9" textFill="WHITE" />
-               &ndash;&gt;</children>-->
-            </AnchorPane>
-            <AnchorPane layoutX="85.0" layoutY="140.0" prefHeight="34.0" prefWidth="554.0">
-               <!--<children>
-                  &lt;!&ndash;<Button layoutX="37.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="E/1" textFill="WHITE" />
-                  <Button layoutX="72.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="E/2" textFill="WHITE" />
-                  <Button layoutX="107.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: gray; -fx-border-color: BLACK;" text="E/3" textFill="WHITE" />
-                  <Button layoutX="142.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: gray; -fx-border-color: BLACK;" text="E/4" textFill="WHITE" />
-                  <Button layoutX="177.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="E/5" textFill="WHITE" />
-                  <Button layoutX="212.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="E/6" textFill="WHITE" />
-                  <Button layoutX="247.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="E/7" textFill="WHITE" />
-                  <Button layoutX="282.0" layoutY="2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="E/8" textFill="WHITE" />
-                  <Button layoutX="326.0" layoutY="2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="E/9" textFill="WHITE" />
-               &ndash;&gt;</children>-->
-            </AnchorPane>
-            <AnchorPane layoutX="85.0" layoutY="167.0" prefHeight="34.0" prefWidth="554.0">
-               <!--<children>
-                  <Button layoutX="37.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="F/1" textFill="WHITE" />
-                  <Button layoutX="72.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="F/2" textFill="WHITE" />
-                  <Button layoutX="107.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="F/3" textFill="WHITE" />
-                  <Button layoutX="142.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="F/4" textFill="WHITE" />
-                  <Button layoutX="177.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="F/5" textFill="WHITE" />
-                  <Button layoutX="212.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="F/6" textFill="WHITE" />
-                  <Button layoutX="247.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="F/7" textFill="WHITE" />
-                  <Button layoutX="282.0" layoutY="2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="F/8" textFill="WHITE" />
-                  <Button layoutX="326.0" layoutY="2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="F/9" textFill="WHITE" />
-               </children>-->
-            </AnchorPane>
-            <AnchorPane layoutX="14.0" layoutY="196.0" prefHeight="34.0" prefWidth="554.0">
-               <!--<children>
-                 &lt;!&ndash; <Button layoutX="37.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="G/1" textFill="WHITE" />
-                  <Button layoutX="72.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="G/2" textFill="WHITE" />
-                  <Button layoutX="107.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GRAY; -fx-border-color: BLACK;" text="G/3" textFill="WHITE" />
-                  <Button layoutX="142.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GRAY; -fx-border-color: BLACK;" text="G/4" textFill="WHITE" />
-                  <Button layoutX="177.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GRAY; -fx-border-color: BLACK;" text="G/5" textFill="WHITE" />
-                  <Button layoutX="212.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GRAY; -fx-border-color: BLACK;" text="G/6" textFill="WHITE" />
-                  <Button layoutX="247.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="G/7" textFill="WHITE" />
-                  <Button layoutX="282.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="G/8" textFill="WHITE" />
-                  <Button layoutX="317.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="G/9" textFill="WHITE" />
-                  <Button layoutX="352.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="G/10" textFill="WHITE" />
-                  &ndash;&gt;<Button layoutX="395.0" layoutY="2.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="44.0" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" text="G/11" textFill="WHITE" />
-               </children>-->
-            </AnchorPane>
          </children>
       </AnchorPane>
       <Button layoutX="498.0" layoutY="497.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="18.0" style="-fx-background-color: GREEN; -fx-border-color: BLACK;" textFill="WHITE" />
       <Label layoutX="535.0" layoutY="502.0" text="Loc liber" />
       <Button layoutX="498.0" layoutY="536.0" mnemonicParsing="false" style="-fx-background-color: gray; -fx-border-color: BLACK;" textFill="WHITE" />
       <Label layoutX="535.0" layoutY="541.0" text="Loc ocupat" />
-      <Button layoutX="84.0" layoutY="524.0" mnemonicParsing="false" text="Continua" />
+       <Button layoutX="498.0" layoutY="575.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="18.0" style="-fx-background-color: ORANGE; -fx-border-color: WHITE;" textFill="BLACK" />
+       <Label layoutX="535.0" layoutY="580.0" text="Loc selectat" />
+      <Button layoutX="344.0" layoutY="537.0" mnemonicParsing="false" onAction="#handleContinueReserve" text="Continua" />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="537.0" mnemonicParsing="false" onAction="#handleBack" text="Inapoi" />
+
    </children>
 </AnchorPane>

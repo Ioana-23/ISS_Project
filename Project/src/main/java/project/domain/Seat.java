@@ -31,4 +31,9 @@ public class Seat extends Entity<Integer>{
     public int hashCode() {
         return Objects.hash(lineNumber, seatnumber);
     }
+
+    @Override
+    public String toString() {
+        return "(" + lineNumber + ", " + seatnumber + ")";
+    }
 }

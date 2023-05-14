@@ -11,7 +11,6 @@ import java.util.List;
 
 public class DatabaseRepositoryMovieHall implements Repository<MovieHall, Integer> {
     private Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/CinemaApp", "postgres", "postgres");
-
     public DatabaseRepositoryMovieHall() throws SQLException {}
     @Override
     public void add(MovieHall itemToAdd)

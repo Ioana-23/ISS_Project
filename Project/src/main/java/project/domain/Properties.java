@@ -10,4 +10,16 @@ public class Properties {
         this.taxaOchelari = taxaOchelari;
         this.nrLocuri = nrLocuri;
     }
+
+    public ReservationProperties getReservationProperties() {
+        return reservationProperties;
+    }
+
+    public boolean isTaxaOchelari() {
+        return taxaOchelari;
+    }
+
+    public int getNrLocuri() {
+        return nrLocuri;
+    }
 }

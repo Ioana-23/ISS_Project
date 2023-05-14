@@ -15,7 +15,7 @@ public class DatabaseRepositoryReservation implements Repository<Reservation, Pa
     @Override
     public void add(Reservation itemToAdd)
     {
-        String comanda = "INSERT INTO public.\"Reservation\"(\"idMovieScreening\", \"status\", \"idUser\") VALUES (?,?,?,?)";
+        String comanda = "INSERT INTO public.\"Reservation\"(\"idMovieScreening\", \"status\", \"idUser\") VALUES (?,?,?)";
         try(PreparedStatement statement = connection.prepareStatement(comanda))
         {
             Pair<Integer, Integer> id = findId(itemToAdd);
@@ -264,8 +264,42 @@ public class DatabaseRepositoryReservation implements Repository<Reservation, Pa
         }
         return reservationList;
     }
+    public Integer findReservation(Reservation reservation)
+    {
+        String comanda = "SELECT * FROM public.\"Reservation\" WHERE \"idMovieScreening\"=? AND \"idUser\"=?";
+        try(PreparedStatement statement = connection.prepareStatement(comanda))
+        {
+            statement.setInt(1, reservation.getMovieScreening().getId());
+            statement.setInt(2, reservation.getUser().getId());
+            try(ResultSet resultSet = statement.executeQuery())
+            {
+                while (resultSet.next())
+                {
+                    int id = resultSet.getInt("id");
+                    return id;
+                }
+            }
+        }
+        catch (SQLException e)
+        {
+            e.getCause();
+            e.printStackTrace();
+        }
+        return -1;
+    }
     public void delete(Reservation reservation)
     {
+        String comanda1 = "DELETE FROM public.\"ReservationSeats\" WHERE \"idReservation\"=?";
+        try(PreparedStatement statement = connection.prepareStatement(comanda1))
+        {
+            statement.setInt(1, findReservation(reservation));
+            statement.executeUpdate();
+        }
+        catch (SQLException e )
+        {
+            e.getCause();
+            e.printStackTrace();
+        }
         String comanda = "DELETE FROM public.\"Reservation\" WHERE \"idMovieScreening\"=? AND \"idUser\"=?";
         try(PreparedStatement statement = connection.prepareStatement(comanda))
         {

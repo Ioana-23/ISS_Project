@@ -18,6 +18,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainPageController {
@@ -177,8 +178,26 @@ public class MainPageController {
         String day = dayOfWeek.toString();
         DayOfWeek dayOfWeek1 = DayOfWeek.MONDAY;
         int dif = dayOfWeek1.getValue() - dayOfWeek.getValue();
-
         LocalDate date1 = dateNow.plusDays(dif);
+        LocalDate date2 = dateNow.plusDays(dif+1);
+        LocalDate date3 = dateNow.plusDays(dif+2);
+        LocalDate date4 = dateNow.plusDays(dif+3);
+        LocalDate date5 = dateNow.plusDays(dif+4);
+        LocalDate date6 = dateNow.plusDays(dif+5);
+        LocalDate date7 = dateNow.plusDays(dif+6);
+        times.add(date1);
+        times.add(date2);
+        times.add(date3);
+        times.add(date4);
+        times.add(date5);
+        times.add(date6);
+        times.add(date7);
+
+        if(day.equals("MONDAY"))
+        {
+            service.addMovieScreenings(times);
+        }
+
         List<MovieScreening> movieScreeningList1 = service.findMovieScreenFromDay(date1);
         ObservableList<String> numeMovies1 = FXCollections.observableArrayList();
         for(int i = 0; i < movieScreeningList1.size(); i++)
@@ -190,7 +209,6 @@ public class MainPageController {
         modelMondayProgram.setAll(new ArrayList<>());
         modelMondayProgram.addAll(movieScreeningList1);
 
-        LocalDate date2 = dateNow.plusDays(dif+1);
         List<MovieScreening> movieScreeningList2 = service.findMovieScreenFromDay(date2);
         ObservableList<String> numeMovies2 = FXCollections.observableArrayList();
         for(int i = 0; i < movieScreeningList2.size(); i++)
@@ -202,7 +220,6 @@ public class MainPageController {
         modelTuesdayProgram.setAll(new ArrayList<>());
         modelTuesdayProgram.addAll(movieScreeningList2);
 
-        LocalDate date3 = dateNow.plusDays(dif+2);
         List<MovieScreening> movieScreeningList3 = service.findMovieScreenFromDay(date3);
         ObservableList<String> numeMovies3 = FXCollections.observableArrayList();
         for(int i = 0; i < movieScreeningList3.size(); i++)
@@ -214,7 +231,6 @@ public class MainPageController {
         modelWednesdayProgram.setAll(new ArrayList<>());
         modelWednesdayProgram.addAll(movieScreeningList3);
 
-        LocalDate date4 = dateNow.plusDays(dif+3);
         List<MovieScreening> movieScreeningList4 = service.findMovieScreenFromDay(date4);
         ObservableList<String> numeMovies4 = FXCollections.observableArrayList();
         for(int i = 0; i < movieScreeningList4.size(); i++)
@@ -226,7 +242,6 @@ public class MainPageController {
         modelThursdayProgram.setAll(new ArrayList<>());
         modelThursdayProgram.addAll(movieScreeningList4);
 
-        LocalDate date5 = dateNow.plusDays(dif+4);
         List<MovieScreening> movieScreeningList5 = service.findMovieScreenFromDay(date5);
         ObservableList<String> numeMovies5 = FXCollections.observableArrayList();
         for(int i = 0; i < movieScreeningList5.size(); i++)
@@ -238,7 +253,6 @@ public class MainPageController {
         modelFridayProgram.setAll(new ArrayList<>());
         modelFridayProgram.addAll(movieScreeningList5);
 
-        LocalDate date6 = dateNow.plusDays(dif+5);
         List<MovieScreening> movieScreeningList6 = service.findMovieScreenFromDay(date6);
         ObservableList<String> numeMovies6 = FXCollections.observableArrayList();
         for(int i = 0; i < movieScreeningList6.size(); i++)
@@ -250,7 +264,6 @@ public class MainPageController {
         modelSaturdayProgram.setAll(new ArrayList<>());
         modelSaturdayProgram.addAll(movieScreeningList6);
 
-        LocalDate date7 = dateNow.plusDays(dif+6);
         List<MovieScreening> movieScreeningList7 = service.findMovieScreenFromDay(date7);
         ObservableList<String> numeMovies7 = FXCollections.observableArrayList();
         for(int i = 0; i < movieScreeningList7.size(); i++)
@@ -262,17 +275,37 @@ public class MainPageController {
         modelSundayProgram.setAll(new ArrayList<>());
         modelSundayProgram.addAll(movieScreeningList7);
 
+        if(dateNow.getDayOfWeek().getValue() > date1.getDayOfWeek().getValue())
+        {
+            makeReservationMonday.setDisable(true);
+        }
+        if(dateNow.getDayOfWeek().getValue() > date2.getDayOfWeek().getValue())
+        {
+            makeReservationTuesday.setDisable(true);
+        }
+        if(dateNow.getDayOfWeek().getValue() > date3.getDayOfWeek().getValue())
+        {
+            makeReservationWednesday.setDisable(true);
+        }
+        if(dateNow.getDayOfWeek().getValue() > date4.getDayOfWeek().getValue())
+        {
+            makeReservationThursday.setDisable(true);
+        }
+        if(dateNow.getDayOfWeek().getValue() > date5.getDayOfWeek().getValue())
+        {
+            makeReservationFriday.setDisable(true);
+        }
+        if(dateNow.getDayOfWeek().getValue() > date6.getDayOfWeek().getValue())
+        {
+            makeReservationSaturday.setDisable(true);
+        }
+        if(dateNow.getDayOfWeek().getValue() > date7.getDayOfWeek().getValue())
+        {
+            makeReservationSunday.setDisable(true);
+        }
         List<Reservation> reservationListUser = service.findAllReservationsFromUser(userCurent);
         modelReservationModel.setAll(new ArrayList<>());
         modelReservationModel.addAll(reservationListUser);
-
-        times.add(date1);
-        times.add(date2);
-        times.add(date3);
-        times.add(date4);
-        times.add(date5);
-        times.add(date6);
-        times.add(date7);
     }
     private void initialize()
     {
@@ -467,99 +500,126 @@ public class MainPageController {
         stage.show();
         UpdateController appController = fxmlLoader.getController();
         appController.setRezervareaCurenta(accountTableReservation.getSelectionModel().getSelectedItem());
-        //appController.setUserCurent(userCurent);
         appController.setMainPageController(this);
         appController.setService(this.service);
     }
     @FXML
     private void makeReservationMonday(ActionEvent actionEvent) throws IOException {
         MovieScreening movieScreening = mondayTableProgram.getSelectionModel().getSelectedItem();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/views/rezerva-view1.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 599, 285);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        ReserveController1 appController = fxmlLoader.getController();
-        appController.setUserCurent(userCurent);
-        appController.setMovieScreening(movieScreening);
-        appController.setService(this.service);
+        if(movieScreening.getTime().isAfter(LocalTime.now()))
+        {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/views/rezerva-view1.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 601, 333);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+            ReserveController1 appController = fxmlLoader.getController();
+            appController.setMainPageController(this);
+            appController.setUserCurent(userCurent);
+            appController.setMovieScreening(movieScreening);
+            appController.setService(this.service);
+        }
     }
-
-    public void makeReservationTuesday(ActionEvent actionEvent) throws IOException {
+    @FXML
+    private void makeReservationTuesday(ActionEvent actionEvent) throws IOException {
         MovieScreening movieScreening = tuesdayTableProgram.getSelectionModel().getSelectedItem();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/views/rezerva-view1.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 599, 285);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        ReserveController1 appController = fxmlLoader.getController();
-        appController.setUserCurent(userCurent);
-        appController.setMovieScreening(movieScreening);
-        appController.setService(this.service);
+        if(movieScreening.getTime().isAfter(LocalTime.now()))
+        {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/views/rezerva-view1.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 601, 333);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+            ReserveController1 appController = fxmlLoader.getController();
+            appController.setMainPageController(this);
+            appController.setUserCurent(userCurent);
+            appController.setMovieScreening(movieScreening);
+            appController.setService(this.service);
+        }
     }
-
-    public void makeReservationWednesday(ActionEvent actionEvent) throws IOException {
+    @FXML
+    private void makeReservationWednesday(ActionEvent actionEvent) throws IOException {
         MovieScreening movieScreening = wednesdayTableProgram.getSelectionModel().getSelectedItem();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/views/rezerva-view1.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 599, 285);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        ReserveController1 appController = fxmlLoader.getController();
-        appController.setUserCurent(userCurent);
-        appController.setMovieScreening(movieScreening);
-        appController.setService(this.service);
+        if(movieScreening.getTime().isAfter(LocalTime.now()))
+        {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/views/rezerva-view1.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 601, 333);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+            ReserveController1 appController = fxmlLoader.getController();
+            appController.setMainPageController(this);
+            appController.setUserCurent(userCurent);
+            appController.setMovieScreening(movieScreening);
+            appController.setService(this.service);
+        }
     }
-
-    public void makeReservationThursday(ActionEvent actionEvent) throws IOException {
+    @FXML
+    private void makeReservationThursday(ActionEvent actionEvent) throws IOException {
         MovieScreening movieScreening = thursdayTableProgram.getSelectionModel().getSelectedItem();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/views/rezerva-view1.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 599, 285);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        ReserveController1 appController = fxmlLoader.getController();
-        appController.setUserCurent(userCurent);
-        appController.setMovieScreening(movieScreening);
-        appController.setService(this.service);
+        if(movieScreening.getTime().isAfter(LocalTime.now()))
+        {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/views/rezerva-view1.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 601, 333);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+            ReserveController1 appController = fxmlLoader.getController();
+            appController.setMainPageController(this);
+            appController.setUserCurent(userCurent);
+            appController.setMovieScreening(movieScreening);
+            appController.setService(this.service);
+        }
     }
-
-    public void makeReservationFriday(ActionEvent actionEvent) throws IOException {
+    @FXML
+    private void makeReservationFriday(ActionEvent actionEvent) throws IOException {
         MovieScreening movieScreening = fridayTableProgram.getSelectionModel().getSelectedItem();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/views/rezerva-view1.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 599, 285);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        ReserveController1 appController = fxmlLoader.getController();
-        appController.setUserCurent(userCurent);
-        appController.setMovieScreening(movieScreening);
-        appController.setService(this.service);
+        if(movieScreening.getTime().isAfter(LocalTime.now()))
+        {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/views/rezerva-view1.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 601, 333);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+            ReserveController1 appController = fxmlLoader.getController();
+            appController.setMainPageController(this);
+            appController.setUserCurent(userCurent);
+            appController.setMovieScreening(movieScreening);
+            appController.setService(this.service);
+        }
     }
-
-    public void makeReservationSaturday(ActionEvent actionEvent) throws IOException {
+    @FXML
+    private void makeReservationSaturday(ActionEvent actionEvent) throws IOException {
         MovieScreening movieScreening = saturdayTableProgram.getSelectionModel().getSelectedItem();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/views/rezerva-view1.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 599, 285);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        ReserveController1 appController = fxmlLoader.getController();
-        appController.setUserCurent(userCurent);
-        appController.setMovieScreening(movieScreening);
-        appController.setService(this.service);
+        if(movieScreening.getTime().isAfter(LocalTime.now()))
+        {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/views/rezerva-view1.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 601, 333);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+            ReserveController1 appController = fxmlLoader.getController();
+            appController.setMainPageController(this);
+            appController.setUserCurent(userCurent);
+            appController.setMovieScreening(movieScreening);
+            appController.setService(this.service);
+        }
     }
-
-    public void makeReservationSunday(ActionEvent actionEvent) throws IOException {
+    @FXML
+    private void makeReservationSunday(ActionEvent actionEvent) throws IOException {
         MovieScreening movieScreening = sundayTableProgram.getSelectionModel().getSelectedItem();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/views/rezerva-view1.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 599, 285);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        ReserveController1 appController = fxmlLoader.getController();
-        appController.setUserCurent(userCurent);
-        appController.setMovieScreening(movieScreening);
-        appController.setService(this.service);
+        if(movieScreening.getTime().isAfter(LocalTime.now()))
+        {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/views/rezerva-view1.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 601, 333);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+            ReserveController1 appController = fxmlLoader.getController();
+            appController.setMainPageController(this);
+            appController.setUserCurent(userCurent);
+            appController.setMovieScreening(movieScreening);
+            appController.setService(this.service);
+        }
     }
 }
