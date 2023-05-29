@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="project.domainHibernate.MovieReview"
+           table="MovieReview">
+        <id name="id" column="id">
+            <generator class="increment"/>
+        </id>
+        <many-to-one name="user" column="idUser" class="project.domainHibernate.User" not-null="true"/>
+        <many-to-one name="movie" column="idMovie" class="project.domainHibernate.Movie" not-null="true"/>
+        <property name="star" column="star"/>
+    </class>
+</hibernate-mapping>

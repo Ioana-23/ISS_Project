@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="project.domainHibernate.Movie"
+           table="Movie">
+        <id name="id" column="id">
+            <generator class="increment"/>
+        </id>
+        <property name="informatii" column="informatii"/>
+        <property name="imagePath" column="imagePath"/>
+        <property name="name" column="name"/>
+        <property name="genre" column="genre"/>
+        <property name="review" column="review"/>
+        <property name="date" column="date"/>
+    </class>
+</hibernate-mapping>

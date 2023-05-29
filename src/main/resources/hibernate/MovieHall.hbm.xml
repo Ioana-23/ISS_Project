@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="project.domainHibernate.MovieHall"
+           table="MovieHall">
+        <id name="id" column="id">
+            <generator class="increment"/>
+        </id>
+        <property name="number" column="number"/>
+        <bag name="movieHallConfiguration" table="MovieHallSeats" fetch="join" cascade="all">
+            <key column="idMovieHall"/>
+            <many-to-many class="project.domainHibernate.Seat" column="idSeat"/>
+        </bag>
+    </class>
+</hibernate-mapping>

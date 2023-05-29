@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="anchor" prefHeight="325.0" prefWidth="523.0" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.controllers.ConfirmChoicesController">
+   <Button layoutX="133.0" layoutY="57.0" mnemonicParsing="false" onAction="#handleReservation"
+           prefHeight="67.0" prefWidth="275.0" text="Rezerva locuri"/>
+   <Button layoutX="133.0" layoutY="143.0" mnemonicParsing="false" onAction="#handleBuy" prefHeight="67.0"
+           prefWidth="275.0" text="Cumpara online"/>
+</AnchorPane>
